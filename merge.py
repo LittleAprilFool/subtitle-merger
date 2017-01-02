@@ -20,7 +20,7 @@ def process(line):
 def time(rawtime):
     (hour, minute, seconds) = rawtime.strip().split(":")
     (second, milisecond) = seconds.strip().split(",")
-    return int(milisecond) + 100 * int(second) + 100 * 60 * int(minute) + 100 * 60 * 60 * int(hour)
+    return int(milisecond) + 1000 * int(second) + 1000 * 60 * int(minute) + 1000 * 60 * 60 * int(hour)
 
 def findnext(point, inputcontent):
     smallest = sys.maxint
@@ -30,7 +30,7 @@ def findnext(point, inputcontent):
             continue
         else:
             begintime = time(inputcontent[i][point[i]].begin) 
-            if begintime < smallest:
+            if begintime < smallest:        
                 smallest = begintime
                 smallestid = i
     return smallestid
@@ -66,8 +66,6 @@ for f in inputfile:
         else:
             line.append(l)
     inputcontent.append(content)
-
-
 
 outputraw = merge(inputcontent)
 printsub(outputraw, opts.output)
