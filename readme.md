@@ -1,4 +1,5 @@
-#subtitle-merger
+# subtitle-merger
+[english](./english_readme.md)
 
 ## 使用场景
 
